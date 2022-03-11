@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ItemCategory from '../components/ItemCategory.vue'
+import ItemsView from '../components/ItemsView.vue'
+import AddCategory from '../components/AddCategory.vue'
+import AddItem from '../components/AddItem.vue'
+import AllCategory from '../components/AllCategory.vue'
+import AllItems from '../components/AllItems.vue'
+import EditTask from '../components/EditTask.vue'
+import EditItem from '../components/EditItem.vue'
 
 Vue.use(VueRouter)
 
@@ -11,13 +19,45 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/itemcategory',
+    name: 'itemcategory',
+    component: ItemCategory
+  },
+  {
+    path: '/items',
+    name: 'items',
+    component: ItemsView
+  },
+  {
+    path: '/allcategory',
+    name: 'allcategory',
+    component: AllCategory
+  },
+  {
+    path: '/addnewcategory',
+    name: 'addnewcategory',
+    component: AddCategory
+  },
+  {
+    path: '/allitems',
+    name: 'allitems',
+    component: AllItems
+  },
+  {
+    path: '/addnewitem',
+    name: 'addnewitem',
+    component: AddItem
+  },
+  {
+    path: '/Edittask/:id',
+    name: 'Edittask',
+    component: EditTask
+  },
+  {
+    path: '/Edititem/:id',
+    name: 'Edititem',
+    component: EditItem
+  },
 ]
 
 const router = new VueRouter({
