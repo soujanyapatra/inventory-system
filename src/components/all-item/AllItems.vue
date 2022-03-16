@@ -1,9 +1,9 @@
 <template>
   <table class="table">
   <thead class="thead-dark">
-  <h1 class="green--text">All Items</h1>
+  <h2 class="brown--text">All Items</h2>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col"><i class="fa-regular fa-id-badge"></i> ID</th>
       <th scope="col">Name</th>
       <th scope="col">Category</th>
       <th scope="col">Description</th>
@@ -15,11 +15,11 @@
   </thead>
   <tbody>
     <tr v-for="item in items" :key="item.id">
-      <td>{{item.Id}}</td>
+      <td>{{ item.Id}}</td>
       <td>{{item.Name}}</td>
       <td>{{item.Category}}</td>
       <td>{{item.Description}}</td>
-      <td>{{item.Price}}<i class="fa-solid fa-indian-rupee-sign"></i></td>
+      <td><i class="fa-solid fa-indian-rupee-sign"></i>{{item.Price}}</td>
       <td>{{item.Status}}</td>
       <td><i @click="$router.push({name: 'Edititem', params:{id: item.id}})"  class="fa-solid fa-pen-to-square"></i></td>
       <td>

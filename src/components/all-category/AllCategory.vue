@@ -3,7 +3,7 @@
     <thead class="thead-dark">
       <h1 class="green--text">All categories</h1>
      <tr>
-          <td>Id</td>
+          <td><i class="fa-regular fa-id-badge"></i> Id</td>
           <td>Name</td>
           <td>Description</td>
           <td>Status</td>

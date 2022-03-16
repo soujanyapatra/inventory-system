@@ -1,6 +1,6 @@
 <template>
   <form >
-      <h1 class="green--text">Add new Categories</h1>
+      <h2 class="green--text">Add new Categories</h2>
       <div class="form-group row">
       <input type="number" placeholder="Enter the ID" v-model="categories.Id">
       <br><br>

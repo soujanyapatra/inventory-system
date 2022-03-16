@@ -1,6 +1,6 @@
 <template>
   <form >
-      <h1 class="green--text">Edit the Item</h1>
+      <h2 class="green--text">Edit the Item</h2>
       <div class="form-group row">
       <input type="number" placeholder="Enter the ID" v-model="items.Id">
       <br><br>

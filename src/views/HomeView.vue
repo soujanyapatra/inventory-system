@@ -1,8 +1,8 @@
 <template>
-  <nav style="background-color:powderblue;">
-    <v-toolbar flat app class="red">
-      <v-toolbar-icon @click="drawer=!drawer" class="fa-duotone fa-arrows-rotate"></v-toolbar-icon>
-        <h2 class="white--text">Inventory System</h2>
+  <nav style="background-color:blue;">
+    <v-toolbar flat app class="green">
+      <v-toolbar-icon @click="drawer=!drawer"><i class="fa-solid fa-align-center"></i></v-toolbar-icon>
+        <h1 class="black--text">Inventory System</h1>
     </v-toolbar>
     <v-navigation-drawer app class="blue" v-model="drawer">
     <router-link to="/itemcategory"> 
@@ -21,7 +21,7 @@
        <v-list class="large">
         <v-list-title>
           <v-list-titel-action>
-             <i class="fa-thin fa-bars-progress"></i>
+            <i class="fa-solid fa-align-center"></i>
           </v-list-titel-action>
           <v-list-title-content>
             <v-list-list-title class="black--text">Items</v-list-list-title>
