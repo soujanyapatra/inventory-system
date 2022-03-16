@@ -13,10 +13,10 @@
        <input type="number" placeholder="Enter the price" v-model="items.Price">
       <br><br>
      <select v-model="items.Status">
-          <option v-for="value in status" :key="value"> {{ value }} </option>
+          <option v-for="value in Status" :key="value"> {{ value }} </option>
      </select>
      <br><br>
-      <button @click.prevent="Upload" class="btn btn-primary">submit</button>
+      <button @click.prevent="Submit" class="btn btn-primary">submit</button>
       </div>
   </form>
 </template>
@@ -36,21 +36,18 @@ export default {
            Status:['Active','Inactive']
        }
    },
-    mounted() {
-    this.getData();
-  },
   methods:{
-    Submit(){
-      axios.put('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+this.$route.params.id+'.json',this.items)
+    async Submit(){
+      await axios.put('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+this.$route.params.id+'.json',this.items)
       this.$router.push({name:'allitems'})
+      this.getData();
     },
-    getData(){
-      let d = this
-      axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+this.$route.params.id+'.json').then(function(response){
-        d.items = response.data;
-      })
-    },
-  }
+  },
+  async mounted(){
+         let d = this
+         const result = await axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+this.$route.params.id+'.json')
+         d.items=result.data
+  },
 }
 </script>
 

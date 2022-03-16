@@ -12,7 +12,7 @@
           <option v-for="item in status" :key="item"> {{ item }} </option>
      </select>
      <br><br>
-      <button @click.prevent="Upload" class="btn btn-primary">Add this Category</button>
+      <button @click.prevent="Adddata" class="btn btn-primary">Add this Category</button>
       </div>
   </form>
 </template>
@@ -31,7 +31,7 @@ export default {
        }
    },
    methods:{
-       Upload(){
+       Adddata(){
           axios.post('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item.json',this.categories)
           this.$router.push({name:'home'})
        }

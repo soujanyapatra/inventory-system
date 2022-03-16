@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ItemCategory from '../components/ItemCategory.vue'
-import ItemsView from '../components/ItemsView.vue'
-import AddCategory from '../components/AddCategory.vue'
-import AddItem from '../components/AddItem.vue'
-import AllCategory from '../components/AllCategory.vue'
-import AllItems from '../components/AllItems.vue'
-import EditTask from '../components/EditTask.vue'
-import EditItem from '../components/EditItem.vue'
+import ItemCategory from '../layout/ItemCategory.vue'
+import ItemsView from '../layout/ItemsView.vue'
+import AddCategory from '../components/add-new-category/AddCategory.vue'
+import AddItem from '../components/add-new-item/AddItem.vue'
+import AllCategory from '../components/all-category/AllCategory.vue'
+import AllItems from '../components/all-item/AllItems.vue'
+import EditTask from '../components/edit-category/EditCategory.vue'
+import EditItem from '../components/edit-item/EditItem.vue'
 
 Vue.use(VueRouter)
 
@@ -49,12 +49,12 @@ const routes = [
     component: AddItem
   },
   {
-    path: '/Edittask/:id',
+    path: '/editcategory/:id',
     name: 'Edittask',
     component: EditTask
   },
   {
-    path: '/Edititem/:id',
+    path: '/edititem/:id',
     name: 'Edititem',
     component: EditItem
   },

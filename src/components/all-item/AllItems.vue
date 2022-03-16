@@ -14,16 +14,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="item in items" :key="item">
+    <tr v-for="item in items" :key="item.id">
       <td>{{item.Id}}</td>
       <td>{{item.Name}}</td>
       <td>{{item.Category}}</td>
       <td>{{item.Description}}</td>
-      <td>{{item.Price}}</td>
+      <td>{{item.Price}}<i class="fa-solid fa-indian-rupee-sign"></i></td>
       <td>{{item.Status}}</td>
       <td><i @click="$router.push({name: 'Edititem', params:{id: item.id}})"  class="fa-solid fa-pen-to-square"></i></td>
       <td>
-        <i @click="Del(item.id)" class="fa-solid fa-trash"></i> 
+        <i @click="Delete(item.id)" class="fa-solid fa-trash"></i> 
       </td>
     </tr>
   </tbody>
@@ -38,8 +38,16 @@ export default {
           items:[]
         }
     },
-    created() {
-    let d = this;
+ methods:{
+      Delete(id){
+      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+id+'.json').then((data)=>{
+      console.log(data)
+      this.getData();
+      })
+      this.$router.push({name:'allitems'})
+    },
+    getData(){
+      let d = this;
     axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem.json').then(function (data) {
       var blogsArray = [];
       let blog_data = data.data
@@ -50,15 +58,11 @@ export default {
       d.items = blogsArray;
       console.log(d.items);
     })
+    }
   },
-  methods:{
-      Del(id){
-      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+id+'.json').then(function(data){
-      console.log(data)
-      })
-      this.$router.push({name:'allitems'})
-    },
-  }
+  mounted() {
+     this.getData();
+  },
 }
 </script>
 <style>

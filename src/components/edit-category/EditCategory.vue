@@ -30,21 +30,17 @@ export default {
            status:['Active','Inactive']
        }
    },
-  mounted() {
-    this.getData();
-  },
   methods:{
-    Submit(){
-      axios.put('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+this.$route.params.id+'.json',this.categories)
-      this.$router.push({name:'allcategory'})
-    },
-    getData(){
+      async Submit(){
+                await axios.put('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+this.$route.params.id+'.json',this.categories)
+                this.$router.push({name:'allcategory'})
+         },
+  },
+   async mounted(){
       let d = this
-      axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+this.$route.params.id+'.json').then(function(response){
-        d.categories = response.data;
-      })
-    },
-  }
+      const result = await axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+this.$route.params.id+'.json')
+      d.categories=result.data
+  },
 }
 </script>
 

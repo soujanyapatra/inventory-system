@@ -17,7 +17,7 @@
           <td> {{category.status}} </td>
           <td><i @click="$router.push({name: 'Edittask', params:{id: category.id}})" class="fa-solid fa-pen-to-square"></i></td>
           <td>
-            <i @click="Del(category.id)" class="fa-solid fa-trash"> </i> 
+            <i @click="Delete(category.id)" class="fa-solid fa-trash"> </i> 
           </td>
         </tr>
   </thead>
@@ -32,27 +32,31 @@ export default {
           categories:[]
         }
     },
-    created() {
-    let d = this;
-    axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item.json').then(function (data) {
-      var blogsArray = [];
-      let blog_data = data.data
-      for (let key in blog_data){
-        blog_data[key].id = key;
-        blogsArray.push(blog_data[key]);
-      }
-      d.categories = blogsArray;
-      console.log(d.categories);
-    })
-  },
   methods:{
-      Del(id){
-      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+id+'.json').then(function(data){
-      console.log(data)
-      })
-      this.$router.push({name:'allcategory'})
+      getData(){
+          let d = this;
+          axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item.json').then((data)=>{
+          var blogsArray = [];
+          let blog_data = data.data
+          for (let key in blog_data){
+          blog_data[key].id = key;
+          blogsArray.push(blog_data[key]);
+        }
+         d.categories = blogsArray;
+         console.log(d.categories);
+     })
     },
-  }
+    Delete(id){
+      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+id+'.json').then((data)=>{
+      console.log(data)
+      this.getData();
+      })
+      // this.$router.push({name:'allcategory'})
+    },
+  },
+  mounted() {
+               this.getData();
+            },
 }
 </script>
 
