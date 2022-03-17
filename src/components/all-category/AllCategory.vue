@@ -1,7 +1,7 @@
 <template>
     <table class="table">
     <thead class="thead-dark">
-      <h1 class="green--text">All categories</h1>
+      <h1 class="green--text"><i class="fa-solid fa-house blue--text" @click="gotohome()"></i>All categories</h1>
      <tr>
           <td><i class="fa-regular fa-id-badge"></i> Id</td>
           <td>Name</td>
@@ -53,6 +53,9 @@ export default {
       })
       // this.$router.push({name:'allcategory'})
     },
+    gotohome(){
+      this.$router.push({name:'home'})
+    }
   },
   mounted() {
                this.getData();

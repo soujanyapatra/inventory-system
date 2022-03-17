@@ -1,7 +1,7 @@
 <template>
   <table class="table">
   <thead class="thead-dark">
-  <h2 class="brown--text">All Items</h2>
+  <h2 class="brown--text"><i class="fa-solid fa-house blue--text" @click="gotohome()"></i>All Items</h2>
     <tr>
       <th scope="col"><i class="fa-regular fa-id-badge"></i> ID</th>
       <th scope="col">Name</th>
@@ -45,6 +45,9 @@ export default {
       this.getData();
       })
       this.$router.push({name:'allitems'})
+    },
+    gotohome(){
+      this.$router.push({name:'home'})
     },
     getData(){
       let d = this;
