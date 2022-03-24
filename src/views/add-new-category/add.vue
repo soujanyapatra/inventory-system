@@ -24,20 +24,22 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Data from '@/mixins/Data.js';
+// import axios from 'axios'
 import { required } from "vuelidate/lib/validators";
 export default{
-    data(){
-        return{
-           categories:{
-                Id:'',
-                Name:'',
-                Description:'',
-           },
-           status:['Active','Inactive'],
-           submitted:false
-        };
-    },
+    mixins:[Data],
+    // data(){
+    //     return{
+    //        categories:{
+    //             Id:'',
+    //             Name:'',
+    //             Description:'',
+    //        },
+    //        status:['Active','Inactive'],
+    //        submitted:false
+    //     };
+    // },
     validations:{
         categories:{
                 Id:{ required },
@@ -46,22 +48,8 @@ export default{
                 status:{ required }
            },
     },
-    methods:{
-        submit(){
-            this.submitted = true;
-
-                // stop here if form is invalid
-                this.$v.$touch();
-                if (this.$v.$invalid) {
-                    return;
-                }
-                console.log('submited')
-                   axios.post('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item.json',this.categories)
-                   this.$router.push({name:'home'})
-                // alert("SUCCESS");
-            }
-        }
-    }
+   
+}
 
 
 

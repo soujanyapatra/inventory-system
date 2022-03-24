@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../components/HomeView.vue'
 import ItemCategory from '../layouts/ItemCategory.vue'
 import ItemsView from '../layouts/ItemsView.vue'
-import AddCategory from '../components/add-new-category/AddCategory.vue'
-import AddItem from '../components/add-new-item/AddItem.vue'
-import AllCategory from '../components/all-category/AllCategory.vue'
-import AllItems from '../components/all-item/AllItems.vue'
-import EditTask from '../components/edit-category/EditCategory.vue'
-import EditItem from '../components/edit-item/EditItem.vue'
+import addc from '../views/add-new-category/add.vue'
+import add from '../views/add-new-item/add.vue'
+import allc from '../views/all-category/all.vue'
+import all from '../views/all-item/all.vue'
+import editc from '../views/edit-category/edit.vue'
+import edit from '../views/edit-item/edit.vue'
 
 Vue.use(VueRouter)
 
@@ -31,32 +31,32 @@ const routes = [
   {
     path: '/allcategory',
     name: 'allcategory',
-    component: AllCategory
+    component: allc
   },
   {
     path: '/addnewcategory',
     name: 'addnewcategory',
-    component: AddCategory
+    component: addc
   },
   {
     path: '/allitems',
     name: 'allitems',
-    component: AllItems
+    component: all
   },
   {
     path: '/addnewitem',
     name: 'addnewitem',
-    component: AddItem
+    component: add
   },
   {
     path: '/editcategory/:id',
     name: 'Edittask',
-    component: EditTask
+    component: editc
   },
   {
     path: '/edititem/:id',
     name: 'Edititem',
-    component: EditItem
+    component: edit
   },
 ]
 

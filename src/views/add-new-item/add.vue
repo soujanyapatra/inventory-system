@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="Submit">
       <h2 class="green--text">Add item</h2> 
       <div class="form-group row">
       <input type="number" placeholder="Enter the ID" required v-model="items.Id" :class="{ 'is-invalid': submitted && $v.items.Id.$error }"/>
@@ -28,22 +28,24 @@
 </template>
 
 <script>
+import Data from '@/mixins/Data';
 import { required } from "vuelidate/lib/validators";
-import axios from 'axios'
+// import axios from 'axios'
 export default {
-   data(){
-       return{
-           items:{
-               Id:'',
-               Name:'',
-               Category:'',
-               Description:'',
-               Price:'',
-           },
-           Status:['Active','Inactive'],
-           submitted:false
-       };
-   },
+    mixins:[Data],
+//    data(){
+//        return{
+//            items:{
+//                Id:'',
+//                Name:'',
+//                Category:'',
+//                Description:'',
+//                Price:'',
+//            },
+//            Status:['Active','Inactive'],
+//            submitted:false
+//        };
+//    },
    validations:{
            items:{
                Id:{ required },
@@ -54,19 +56,6 @@ export default {
                Status:{ required }
            },  
    },
-   methods:{
-       submit(){
-           this.submitted = true;
-             this.$v.$touch();
-                if (this.$v.$invalid) {
-                    return;
-                }
-              console.log('submitted')
-            //   alert('Submit')
-          axios.post('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem.json',this.items)
-          this.$router.push({name:'home'})
-       }
-   }
 }
 </script>
 

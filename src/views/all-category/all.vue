@@ -35,7 +35,7 @@ export default {
   methods:{
       getData(){
           let d = this;
-          axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item.json').then((data)=>{
+          axios.get('item.json').then((data)=>{
           var blogsArray = [];
           let blog_data = data.data
           for (let key in blog_data){
@@ -47,7 +47,7 @@ export default {
      })
     },
     Delete(id){
-      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/item/'+id+'.json').then((data)=>{
+      axios.delete('item/'+id+'.json').then((data)=>{
       console.log(data)
       this.getData();
       })

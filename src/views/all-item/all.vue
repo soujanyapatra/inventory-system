@@ -40,7 +40,7 @@ export default {
     },
  methods:{
       Delete(id){
-      axios.delete('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem/'+id+'.json').then((data)=>{
+      axios.delete('newitem/'+id+'.json').then((data)=>{
       console.log(data)
       this.getData();
       })
@@ -51,7 +51,7 @@ export default {
     },
     getData(){
       let d = this;
-    axios.get('https://inventory-system-1e4c2-default-rtdb.firebaseio.com/newitem.json').then(function (data) {
+    axios.get('newitem.json').then(function (data) {
       var blogsArray = [];
       let blog_data = data.data
       for (let key in blog_data){
