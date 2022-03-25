@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
     data(){
         return{
@@ -35,7 +35,7 @@ export default {
   methods:{
       getData(){
           let d = this;
-          axios.get('item.json').then((data)=>{
+          this.$axios.get('item.json').then((data)=>{
           var blogsArray = [];
           let blog_data = data.data
           for (let key in blog_data){
@@ -47,7 +47,7 @@ export default {
      })
     },
     Delete(id){
-      axios.delete('item/'+id+'.json').then((data)=>{
+      this.$axios.delete('item/'+id+'.json').then((data)=>{
       console.log(data)
       this.getData();
       })

@@ -1,4 +1,4 @@
-import axios from '../axios/axios.js'
+// import axios from '../axios/axios.js'
 export default{
     data(){
         return{
@@ -9,7 +9,7 @@ export default{
            },
             items:{
                 Id:'',
-                Name:'',
+                Name:'', 
                 Category:'',
                 Description:'',
                 Price:'',
@@ -29,7 +29,7 @@ export default{
                  }
                console.log('submitted')
              //   alert('Submit')
-           axios.post('newitem.json',this.items)
+           this.$axios.post('newitem.json',this.items)
            this.$router.push({name:'home'})
         },
         submit(){
@@ -41,7 +41,7 @@ export default{
                     return;
                 }
                 console.log('submited')
-                   axios.post('item.json',this.categories)
+                   this.$axios.post('item.json',this.categories)
                    this.$router.push({name:'home'})
                 // alert("SUCCESS");
             },

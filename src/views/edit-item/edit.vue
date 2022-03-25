@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
    data(){
        return{
@@ -38,14 +38,14 @@ export default {
    },
   methods:{
     async Submit(){
-      await axios.put('newitem/'+this.$route.params.id+'.json',this.items)
+      await this.$axios.put('newitem/'+this.$route.params.id+'.json',this.items)
       this.$router.push({name:'allitems'})
       this.getData();
     },
   },
   async mounted(){
          let d = this
-         const result = await axios.get('newitem/'+this.$route.params.id+'.json')
+         const result = await this.$axios.get('newitem/'+this.$route.params.id+'.json')
          d.items=result.data
   },
 }

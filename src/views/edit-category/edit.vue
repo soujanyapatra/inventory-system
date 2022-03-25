@@ -19,7 +19,7 @@
 
 <script>
 
-import axios from 'axios'
+// import axios from 'axios'
 export default {
    data(){
        return{
@@ -33,13 +33,13 @@ export default {
    },
   methods:{
       async Submit(){
-                await axios.put('item/'+this.$route.params.id+'.json',this.categories)
+                await this.$axios.put('item/'+this.$route.params.id+'.json',this.categories)
                 this.$router.push({name:'allcategory'})
          },
   },
    async mounted(){
       let d = this
-      const result = await axios.get('item/'+this.$route.params.id+'.json')
+      const result = await this.$axios.get('item/'+this.$route.params.id+'.json')
       d.categories=result.data
   },
 }
